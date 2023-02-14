@@ -1,6 +1,6 @@
 import 'package:bmwapp/bloc/provider.dart';
 import 'package:bmwapp/core/app_theme.dart';
-import 'package:bmwapp/pages/login_page.dart';
+import 'package:bmwapp/pages/test_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           'documents': (context) => DocumentsPage(),
           'video-posters': (context) => PostersPage(),
           'video-posters-poll': (context) => PostersPollPage(), */
-          'login': (BuildContext context) => const LoginPage(),
+          'login': (BuildContext context) => const TestPage(),
         },
       ),
     );

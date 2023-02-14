@@ -4,7 +4,10 @@ import 'color_schemes.dart';
 
 TextTheme textTheme = const TextTheme(
   headline1: TextStyle(
-      fontSize: 22.0, fontFamily: 'PoppinsMedium', fontWeight: FontWeight.bold),
+    fontSize: 22.0,
+    fontFamily: 'PoppinsLight',
+    fontWeight: FontWeight.bold,
+  ),
   headline2: TextStyle(
     fontSize: 20.0,
     fontFamily: 'PoppinsMedium',

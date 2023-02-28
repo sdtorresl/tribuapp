@@ -41,11 +41,16 @@ ThemeData lightTheme = ThemeData.light().copyWith(
   textTheme: textTheme,
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
+      backgroundColor: lightColorScheme.primary,
       textStyle: const TextStyle(
         fontSize: 20,
         fontFamily: 'Poppins',
       ),
       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
     ),
+  ),
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
+    backgroundColor: lightColorScheme.tertiaryContainer,
+    foregroundColor: lightColorScheme.onTertiaryContainer,
   ),
 );

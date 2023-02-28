@@ -8,7 +8,7 @@ class RoomModel {
     required this.picture,
     required this.startDate,
     required this.endDate,
-    required this.fieldIcon,
+    this.fieldIcon,
     required this.isMeeting,
     required this.meetingRoom,
     required this.meetingHost,
@@ -21,7 +21,7 @@ class RoomModel {
   final String picture;
   final DateTime startDate;
   final DateTime endDate;
-  final String fieldIcon;
+  final String? fieldIcon;
   final bool isMeeting;
   final String meetingRoom;
   final String meetingHost;

@@ -1,15 +1,14 @@
-import 'package:flutter/cupertino.dart';
+import 'package:bmwapp/pages/rooms_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:bmwapp/common/expandable_fab.dart';
 import 'package:bmwapp/common/fab_bottom_app_bar.dart';
 import 'package:bmwapp/models/room_model.dart';
 // import 'package:bmwapp/pages/schedule_page.dart';
 import 'package:bmwapp/pages/lobby_page.dart';
-import 'package:bmwapp/pages/rooms_page.dart';
+
+import '../providers/rooms_provider.dart';
 // import 'package:bmwapp/pages/transmission_page.dart';
 // import 'package:bmwapp/providers/rooms_provider.dart';
-import 'options_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -21,12 +20,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   int _selectedIndex = 0;
   late TabController _tabController;
-  // final roomsProvider = RoomsProvider();
+  final roomsProvider = RoomsProvider();
   late AnimationController _animation;
 
   static final List<Widget> _widgetOptions = <Widget>[
     const LobbyPage(),
-    //RoomsPage(),
+    const RoomsPage(),
     // SchedulePage(),
     // OptionsPage(),
   ];
@@ -77,7 +76,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       ),
       //_widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: FABBottomAppBar(
-        backgroundColor: Colors.lightBlue,
         onTabSelected: _onItemTapped,
         selectedColor: Theme.of(context).colorScheme.secondary,
         color: Colors.grey,
@@ -88,10 +86,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           FABBottomAppBarItem(iconData: Icons.today_outlined, text: 'Agenda'),
           FABBottomAppBarItem(iconData: Icons.more_horiz_outlined, text: 'Más'),
         ],
+        backgroundColor: Colors.white,
       ),
-      //floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FutureBuilder(
-        // future: roomsProvider.getRooms(),
+        future: roomsProvider.getRooms(),
         builder:
             (BuildContext context, AsyncSnapshot<List<RoomModel>> snapshot) {
           if (snapshot.hasData) {
@@ -101,17 +100,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               rooms.add(
                 Column(
                   children: [
-                    // ActionButton(
-                    //   onPressed: () {
-                    //     Navigator.push(
-                    //       context,
-                    //       MaterialPageRoute(
-                    //         builder: (context) => TransmissionPage(id: room.id),
-                    //       ),
-                    //     );
-                    //   },
-                    //   icon: const Icon(Icons.videocam),
-                    // ),
+                    ActionButton(
+                      onPressed: () {
+                        //TODO
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (context) => TransmissionPage(id: room.id),
+                        //   ),
+                        // );
+                      },
+                      icon: const Icon(Icons.videocam),
+                    ),
                     const SizedBox(
                       height: 5,
                     ),
@@ -142,22 +142,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     );
   }
 
-  PreferredSizeWidget _topBar(context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    Orientation currentOrientation = MediaQuery.of(context).orientation;
-    double barHeight = currentOrientation == Orientation.portrait ? 120 : 70;
-
-    return PreferredSize(
-      preferredSize: Size(screenWidth, barHeight),
-      child: Container(
-        width: screenWidth,
-        padding: const EdgeInsets.all(5),
-        child: SafeArea(
-          child: Image.asset(
-            "assets/img/icfes_app.png",
-            width: screenWidth,
-          ),
+  PreferredSizeWidget _topBar(BuildContext context) {
+    return AppBar(
+      leading: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Image.asset(
+          "assets/img/logo-bmw.png",
         ),
+      ),
+      title: const Text(
+        "Eventos BMW",
       ),
     );
   }

@@ -93,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget _mainImage(context) {
     return SizedBox(
       height: 150,
-      child: Image.asset("assets/img/icfes_app.png"),
+      child: Image.asset("assets/img/logo-bmw.png"),
     );
   }
 

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:global_configuration/global_configuration.dart';
 import 'package:bmwapp/models/room_model.dart';
 import 'package:http/http.dart' as http;
@@ -8,10 +10,10 @@ class RoomsProvider {
 
   Future<List<RoomModel>> getRooms() async {
     try {
-      var response = await http.get(_url as Uri);
+      var response = await http.get(Uri.parse(_url));
 
       if (response.statusCode == 200) {
-        print(response.body);
+        log(response.body);
         List<dynamic> jsonResponse = json.jsonDecode(response.body);
         List<RoomModel> rooms = [];
 
@@ -22,9 +24,11 @@ class RoomsProvider {
 
         return rooms;
       } else {
-        print('Request failed with status: ${response.statusCode}.');
+        log('Request failed with status: ${response.statusCode}.');
       }
-    } catch (Exception) {}
+    } catch (e) {
+      log('error', error: e);
+    }
 
     return [];
   }

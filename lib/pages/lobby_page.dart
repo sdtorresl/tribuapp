@@ -6,7 +6,6 @@ import 'package:bmwapp/common/schedule_expansion_card.dart';
 import 'package:bmwapp/main.dart';
 import 'package:bmwapp/models/event_model.dart';
 import 'package:bmwapp/models/section_model.dart';
-// import 'package:bmwapp/providers/event_provider.dart';
 import 'package:bmwapp/utils/column_builder.dart';
 
 import '../providers/event_provider.dart';

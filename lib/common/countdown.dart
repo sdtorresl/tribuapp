@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_countdown_timer/current_remaining_time.dart';
 import 'package:bmwapp/main.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 
@@ -47,13 +46,13 @@ class _CountdownState extends State<Countdown> {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.only(bottom: 10),
+          margin: const EdgeInsets.only(bottom: 10),
           height: 75,
           width: 75,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: MyApp().primary,
-            border: Border.all(color: Color(0x00FF32C5FF), width: 5),
+            border: Border.all(color: const Color(0xff32c5ff), width: 5),
           ),
           child: Center(
             child: Text(
@@ -64,7 +63,13 @@ class _CountdownState extends State<Countdown> {
             ),
           ),
         ),
-        Text(title),
+        Text(
+          title,
+          style: Theme.of(context)
+              .textTheme
+              .displaySmall
+              ?.copyWith(color: Colors.black26),
+        ),
       ],
     );
   }

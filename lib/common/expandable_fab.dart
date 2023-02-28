@@ -3,7 +3,7 @@ import 'dart:math' as math;
 
 @immutable
 class ExpandableFab extends StatefulWidget {
-  ExpandableFab({
+  const ExpandableFab({
     Key? key,
     this.initialOpen = false,
     required this.distance,
@@ -87,7 +87,7 @@ class _ExpandableFabState extends State<ExpandableFab>
               height: maxDimension,
               width: maxDimension,
               decoration: BoxDecoration(
-                color: Color.fromRGBO(50, 50, 50, 0.8),
+                color: const Color.fromRGBO(50, 50, 50, 0.8),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(widget.distance * 2.5),
                 ),
@@ -212,7 +212,7 @@ class _ExpandingActionButton extends StatelessWidget {
 @immutable
 class ActionButton extends StatelessWidget {
   const ActionButton({
-    required Key key,
+    Key? key,
     required this.onPressed,
     required this.icon,
   }) : super(key: key);
@@ -226,13 +226,14 @@ class ActionButton extends StatelessWidget {
     return Material(
       shape: const CircleBorder(),
       clipBehavior: Clip.antiAlias,
-      color: theme.colorScheme.secondary,
+      color: theme.colorScheme.primary,
       elevation: 4.0,
       child: IconTheme.merge(
         data: theme.iconTheme,
         child: IconButton(
           onPressed: onPressed,
           icon: icon,
+          color: theme.colorScheme.onSecondary,
         ),
       ),
     );

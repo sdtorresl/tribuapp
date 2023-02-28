@@ -43,6 +43,7 @@ dependencies:
   font_awesome_flutter: ^10.4.0
   url_launcher: ^6.1.9
   youtube_player_flutter: ^8.1.2
+  global_configuration: ^2.0.0-nullsafety.1
 
 dev_dependencies:
   flutter_test:
@@ -67,7 +68,7 @@ flutter:
 
   assets:
     - assets/img/
-    - assets/config/
+    - assets/cfg/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

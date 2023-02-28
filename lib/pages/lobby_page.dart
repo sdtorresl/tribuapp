@@ -1,7 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:bmwapp/common/countdown.dart';
 import 'package:bmwapp/common/event_description.dart';
 import 'package:bmwapp/common/schedule_expansion_card.dart';
@@ -10,6 +8,8 @@ import 'package:bmwapp/models/event_model.dart';
 import 'package:bmwapp/models/section_model.dart';
 // import 'package:bmwapp/providers/event_provider.dart';
 import 'package:bmwapp/utils/column_builder.dart';
+
+import '../providers/event_provider.dart';
 
 class LobbyPage extends StatefulWidget {
   const LobbyPage({Key? key}) : super(key: key);
@@ -26,11 +26,11 @@ class _LobbyPageState extends State<LobbyPage> {
 
   @override
   Widget build(BuildContext context) {
-    // EventProvider eventProvider = EventProvider();
+    EventProvider eventProvider = EventProvider();
 
     return FutureBuilder(
-      // future: eventProvider.getEvent(),
-      builder: (BuildContext context, AsyncSnapshot<EventModel> snapshot) {
+      future: eventProvider.getEvent(),
+      builder: (BuildContext context, AsyncSnapshot<EventModel?> snapshot) {
         if (snapshot.hasData) {
           EventModel? event = snapshot.data;
           List<SectionModel>? sections = event?.sections;

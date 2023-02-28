@@ -10,12 +10,13 @@ import 'package:bmwapp/pages/documents_page.dart';
 // import 'package:bmwapp/pages/transmission_page.dart';
 
 // import 'package:global_configuration/global_configuration.dart';
-import 'package:bmwapp/pages/posters_poll_page.dart';
 import 'package:bmwapp/pages/posters_page.dart';
+import 'package:global_configuration/global_configuration.dart';
 // import 'package:bmwapp/bloc/provider_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await GlobalConfiguration().loadFromAsset("settings.json");
   await UserPreferences.init();
   runApp(MyApp());
 }
@@ -23,7 +24,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   MyApp({super.key});
 
-  final prefs = new UserPreferences();
+  final prefs = UserPreferences();
   Color get accent => const Color(0xffe7326e);
   Color get accentLight => const Color(0xffff6c9c);
   Color get accentDark => const Color(0xffaf0043);

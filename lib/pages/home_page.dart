@@ -24,9 +24,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   // final roomsProvider = RoomsProvider();
   late AnimationController _animation;
 
-  static List<Widget> _widgetOptions = <Widget>[
+  static final List<Widget> _widgetOptions = <Widget>[
     const LobbyPage(),
-    // RoomsPage(),
+    //RoomsPage(),
     // SchedulePage(),
     // OptionsPage(),
   ];

@@ -1,4 +1,7 @@
+import 'package:bmwapp/pages/options_page.dart';
 import 'package:bmwapp/pages/rooms_page.dart';
+import 'package:bmwapp/pages/schedule_page.dart';
+import 'package:bmwapp/pages/transmision_page.dart';
 import 'package:flutter/material.dart';
 import 'package:bmwapp/common/expandable_fab.dart';
 import 'package:bmwapp/common/fab_bottom_app_bar.dart';
@@ -26,8 +29,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   static final List<Widget> _widgetOptions = <Widget>[
     const LobbyPage(),
     const RoomsPage(),
-    // SchedulePage(),
-    // OptionsPage(),
+    const SchedulePage(),
+    const OptionsPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -88,7 +91,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         ],
         backgroundColor: Colors.white,
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FutureBuilder(
         future: roomsProvider.getRooms(),
         builder:
@@ -102,13 +105,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   children: [
                     ActionButton(
                       onPressed: () {
-                        //TODO
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => TransmissionPage(id: room.id),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TransmissionPage(id: room.id),
+                          ),
+                        );
                       },
                       icon: const Icon(Icons.videocam),
                     ),
@@ -147,7 +149,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       leading: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Image.asset(
-          "assets/img/logo-bmw.png",
+          "assets/img/logo-bmw-dark.png",
         ),
       ),
       title: const Text(

@@ -2,11 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class EventDescription extends StatelessWidget {
-  final String? title;
-  final description;
-  final picture;
+  final String title;
+  final String description;
+  final String picture;
 
-  const EventDescription({Key? key, this.title, this.description, this.picture})
+  const EventDescription(
+      {Key? key, this.title = '', this.description = '', this.picture = ''})
       : super(key: key);
 
   @override

@@ -2,6 +2,7 @@ import 'package:bmwapp/bloc/provider.dart';
 import 'package:bmwapp/core/app_theme.dart';
 import 'package:bmwapp/pages/login_page.dart';
 import 'package:bmwapp/pages/home_page.dart';
+import 'package:bmwapp/pages/posters_poll_page.dart';
 import 'package:flutter/material.dart';
 import 'package:bmwapp/preferences/user_preferences.dart';
 import 'package:bmwapp/pages/onboarding_page.dart';
@@ -44,10 +45,10 @@ class MyApp extends StatelessWidget {
         routes: {
           'home': (BuildContext context) => const HomePage(),
           'onboarding': (BuildContext context) => const OnboardingPage(),
-          // 'transmission': (context) => TransmissionPage(),
+          //'transmission': (context) => const TransmissionPage(),
           'documents': (context) => const DocumentsPage(),
-          'video-posters': (context) => PostersPage(),
-          /*        'video-posters-poll': (context) => PostersPollPage(), */
+          'video-posters': (context) => const PostersPage(),
+          'video-posters-poll': (context) => const PostersPollPage(),
           'login': (BuildContext context) => const LoginPage(),
         },
       ),

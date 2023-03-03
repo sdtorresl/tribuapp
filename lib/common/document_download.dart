@@ -1,11 +1,11 @@
+import 'package:bmwapp/core/color_schemes.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:bmwapp/main.dart';
 import 'package:bmwapp/utils/general.dart';
 
 class DocumentDownload extends StatefulWidget {
-  final title;
-  final description;
+  final String title;
+  final String description;
   final String? type;
   final String? url;
   final Function()? onChanged;
@@ -17,14 +17,12 @@ class DocumentDownload extends StatefulWidget {
     required this.type,
     required this.url,
     this.onChanged,
-  })  : assert(title != null),
-        assert(description != null),
-        assert(type != null),
+  })  : assert(type != null),
         assert(url != null),
         super(key: key);
 
   @override
-  _DocumentDownloadState createState() => _DocumentDownloadState();
+  State<DocumentDownload> createState() => _DocumentDownloadState();
 }
 
 class _DocumentDownloadState extends State<DocumentDownload> {
@@ -34,15 +32,15 @@ class _DocumentDownloadState extends State<DocumentDownload> {
   Widget build(BuildContext context) {
     var expansionTile = ExpansionTile(
       trailing: _expanded
-          ? Icon(
+          ? const Icon(
               Icons.remove_circle_outline,
               color: Colors.pink,
             )
-          : Icon(
+          : const Icon(
               Icons.add_circle_outline,
               color: Colors.pink,
             ),
-      leading: FaIcon(
+      leading: const FaIcon(
         FontAwesomeIcons.filePdf,
         size: 30,
       ),
@@ -59,28 +57,6 @@ class _DocumentDownloadState extends State<DocumentDownload> {
           ),
         ],
       ),
-      children: <Widget>[
-        const SizedBox(height: 5),
-        Text(widget.description, style: Theme.of(context).textTheme.bodyMedium),
-        SizedBox(height: 15),
-        SizedBox(
-          width: MediaQuery.of(context).size.width,
-          height: 50,
-          child: ElevatedButton(
-            onPressed: () => launchURL(widget.url),
-            child: Text(
-              'Descargar',
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineMedium
-                  ?.copyWith(color: Colors.white),
-            ),
-            style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.resolveWith(
-                    (states) => getButtonColor(states, context))),
-          ),
-        ),
-      ],
       onExpansionChanged: (changed) {
         setState(
           () {
@@ -92,6 +68,28 @@ class _DocumentDownloadState extends State<DocumentDownload> {
         }
       },
       initiallyExpanded: _expanded,
+      children: <Widget>[
+        const SizedBox(height: 5),
+        Text(
+          widget.description,
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium
+              ?.copyWith(color: lightColorScheme.onPrimaryContainer),
+        ),
+        const SizedBox(height: 15),
+        SizedBox(
+          width: MediaQuery.of(context).size.width,
+          height: 50,
+          child: ElevatedButton(
+            onPressed: () => launchURL(widget.url!),
+            child: Text(
+              'Descargar',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+          ),
+        ),
+      ],
     );
 
     return Card(
@@ -100,7 +98,7 @@ class _DocumentDownloadState extends State<DocumentDownload> {
       ),
       elevation: 2.0,
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
         child: expansionTile,
       ),
     );

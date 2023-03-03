@@ -7,7 +7,7 @@ import 'schedule_expansion_card.dart';
 class RecordedList extends StatelessWidget {
   final List<PrerecordedModel> recorded;
 
-  const RecordedList({required this.recorded});
+  const RecordedList({super.key, required this.recorded});
   @override
   Widget build(BuildContext context) {
     List<Widget> recordList = [];
@@ -81,7 +81,6 @@ class RecordedList extends StatelessWidget {
   }
 
   _openRecord(BuildContext context, PrerecordedModel record) {
-    //TODO
     /* Navigator.push(
       context,
       MaterialPageRoute(

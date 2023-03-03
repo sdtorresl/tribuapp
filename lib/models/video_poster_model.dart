@@ -2,7 +2,7 @@ import 'dart:convert';
 
 class VideoPosterModel {
   VideoPosterModel({
-    this.id,
+    required this.id,
     this.titulo,
     this.descripcion,
     required this.videos,
@@ -10,7 +10,7 @@ class VideoPosterModel {
     this.adjunto,
   });
 
-  String? id;
+  String id;
   String? titulo;
   String? descripcion;
   Videos videos;

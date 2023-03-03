@@ -16,17 +16,17 @@ class OnboardingPage extends StatefulWidget {
 class _OnboardingPageState extends State<OnboardingPage> {
   int _current = 0;
   final List<Widget> carouselItems = [
-    Onboarding(
+    const Onboarding(
       title: 'Aquí tendrás acceso al #SeminarioIcfes',
       description: 'Disfruta de este espacio que hemos creado para ti',
       picture: 'assets/img/Bitmap.png',
     ),
-    Onboarding(
+    const Onboarding(
       title: 'Un evento completo al alcance de tu mano',
       description: 'Conéctate a través de tu celular',
       picture: 'assets/img/Bitmap2.png',
     ),
-    Onboarding(
+    const Onboarding(
       title: 'Conferencias y conversatorios sobre educación',
       description: '¡Participa y comparte en redes sociales!',
       picture: 'assets/img/Bitmap3.png',
@@ -91,8 +91,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: _current == index
-                      ? Color.fromRGBO(255, 0, 128, 0.9)
-                      : Color.fromRGBO(255, 0, 111, 0.5),
+                      ? const Color.fromRGBO(255, 0, 128, 0.9)
+                      : const Color.fromRGBO(255, 0, 111, 0.5),
                 ),
               );
             }).toList(),

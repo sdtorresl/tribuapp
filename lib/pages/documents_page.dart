@@ -1,17 +1,17 @@
+import 'package:bmwapp/providers/event_provider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:bmwapp/common/document_download.dart';
 import 'package:bmwapp/models/document_model.dart';
-import 'package:bmwapp/models/event_model.dart';
 // import 'package:bmwapp/providers/event_provider.dart';
 
-import '../main.dart';
+import '../models/event_model.dart';
 
 class DocumentsPage extends StatefulWidget {
   const DocumentsPage({Key? key}) : super(key: key);
 
   @override
-  _DocumentsPageState createState() => _DocumentsPageState();
+  State<DocumentsPage> createState() => _DocumentsPageState();
 }
 
 class _DocumentsPageState extends State<DocumentsPage> {
@@ -23,21 +23,7 @@ class _DocumentsPageState extends State<DocumentsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(
-          color: MyApp().accent,
-        ),
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.white,
-        flexibleSpace: Container(
-          padding: const EdgeInsets.only(left: 75),
-          child: const Image(
-            width: 300,
-            image: AssetImage('assets/img/dots7.png'),
-            repeat: ImageRepeat.repeat,
-          ),
-        ),
-      ),
+      appBar: AppBar(),
       body: Container(
         decoration: const BoxDecoration(
           color: Color.fromRGBO(243, 243, 243, 1),
@@ -48,41 +34,44 @@ class _DocumentsPageState extends State<DocumentsPage> {
           children: <Widget>[
             _mainTitle(context),
             const SizedBox(height: 20),
-            // Expanded(
-            //   child: _listDocuments(),
-            // ),
+            Expanded(
+              child: _listDocuments(),
+            ),
           ],
         ),
       ),
     );
   }
 
-  // Widget _listDocuments() {
-  //   EventProvider eventProvider = EventProvider();
-  //   return FutureBuilder(
-  //     future: eventProvider.getEvent(),
-  //     builder: (BuildContext context, AsyncSnapshot<EventModel> snapshot) {
-  //       if (snapshot.hasData) {
-  //         EventModel event = snapshot.data;
-  //         print(event);
-  //         List<DocumentModel> documents = event.documents;
+  Widget _listDocuments() {
+    EventProvider eventProvider = EventProvider();
+    return FutureBuilder(
+      future: eventProvider.getEvent(),
+      builder: (BuildContext context, AsyncSnapshot<EventModel?> snapshot) {
+        if (snapshot.hasData) {
+          EventModel event = snapshot.data!;
 
-  //         return _sections(context, documents);
-  //       } else {
-  //         return Container(
-  //           height: 400,
-  //           child: const Center(
-  //             child: CircularProgressIndicator(),
-  //           ),
-  //         );
-  //       }
-  //     },
-  //   );
-  // }
+          if (event.documents == null) {
+            return const SizedBox.shrink();
+          }
+
+          List<DocumentModel> documents = event.documents!;
+
+          return _sections(context, documents);
+        } else {
+          return const SizedBox(
+            height: 400,
+            child: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        }
+      },
+    );
+  }
 }
 
 Widget _sections(context, List<DocumentModel> documets) {
-  print(documets);
   return ListView.builder(
     itemCount: documets.length,
     itemBuilder: (context, index) {
@@ -90,8 +79,8 @@ Widget _sections(context, List<DocumentModel> documets) {
 
       return DocumentDownload(
         url: document.url,
-        title: document.title,
-        description: document.description,
+        title: document.title ?? '',
+        description: document.description ?? '',
         type: document.type,
       );
     },

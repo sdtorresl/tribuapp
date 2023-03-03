@@ -2,14 +2,14 @@ import 'dart:convert';
 
 class SectionModel {
   SectionModel({
-    this.title,
-    this.description,
-    this.picture,
+    required this.title,
+    required this.description,
+    required this.picture,
   });
 
-  String? title;
-  String? description;
-  final picture;
+  final String title;
+  final String description;
+  final String picture;
 
   factory SectionModel.fromJson(String str) =>
       SectionModel.fromMap(json.decode(str));

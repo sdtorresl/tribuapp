@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
 class ActionButton extends StatelessWidget {
-  final onPressed;
-  final text;
+  final void Function()? onPressed;
+  final String text;
   final double? width;
 
-  const ActionButton(
-      {Key? key, this.onPressed, @required this.text, this.width})
+  const ActionButton({Key? key, this.onPressed, required this.text, this.width})
       : super(key: key);
 
   @override
@@ -29,10 +28,7 @@ class ActionButton extends StatelessWidget {
                   .headlineMedium
                   ?.copyWith(color: Colors.white),
             ),
-            Icon(
-              Icons.arrow_forward_outlined,
-              color: Colors.yellow[600],
-            )
+            const Icon(Icons.arrow_forward_outlined, color: Colors.white)
           ],
         ),
       ),

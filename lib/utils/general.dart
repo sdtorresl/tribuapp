@@ -1,10 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-launchURL(url) async {
-  print("Attempting to open $url...");
-  if (await canLaunchUrl(url)) {
-    await launchUrl(url);
+launchURL(String url) async {
+  log("Attempting to open $url...");
+  if (await canLaunchUrl(Uri.parse(url))) {
+    await launchUrl(Uri.parse(url));
   } else {
     throw 'Could not launch $url';
   }

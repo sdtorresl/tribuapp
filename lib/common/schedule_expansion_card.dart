@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:bmwapp/main.dart';
 
 class ScheduleExpansionCard extends StatefulWidget {
-  final header;
-  final title;
-  final subtitle;
-  final hidden;
+  final String? header;
+  final String title;
+  final String? subtitle;
+  final Widget hidden;
   final Function()? onChanged;
   final bool highlight;
 
@@ -13,19 +13,18 @@ class ScheduleExpansionCard extends StatefulWidget {
     Key? key,
     this.header,
     this.subtitle,
-    @required this.title,
-    @required this.hidden,
+    required this.title,
+    required this.hidden,
     this.onChanged,
     this.highlight = false,
-  })  : assert(title != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
-  _ScheduleExpansionCardState createState() => _ScheduleExpansionCardState();
+  State<ScheduleExpansionCard> createState() => _ScheduleExpansionCardState();
 }
 
 class _ScheduleExpansionCardState extends State<ScheduleExpansionCard> {
-  bool _expanded = false;
+  final bool _expanded = false;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +36,7 @@ class _ScheduleExpansionCardState extends State<ScheduleExpansionCard> {
       headerItems = <Widget>[
         const SizedBox(height: 17),
         Text(
-          widget.header,
+          widget.header ?? '',
           style: Theme.of(context)
               .textTheme
               .headlineMedium
@@ -82,7 +81,7 @@ class _ScheduleExpansionCardState extends State<ScheduleExpansionCard> {
           ? Container(
               padding: const EdgeInsets.only(top: 5, bottom: 5),
               child: Text(
-                widget.subtitle,
+                widget.subtitle ?? '',
                 textAlign: TextAlign.justify,
                 style: Theme.of(context)
                     .textTheme

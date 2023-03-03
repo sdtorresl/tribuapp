@@ -9,7 +9,15 @@ Future<void> showMyDialog(
     builder: (BuildContext context) {
       return AlertDialog(
         title: Text(title),
+        titleTextStyle: Theme.of(context)
+            .textTheme
+            .headline2
+            ?.copyWith(color: Colors.black),
         content: SingleChildScrollView(child: body),
+        contentTextStyle: Theme.of(context)
+            .textTheme
+            .bodyMedium
+            ?.copyWith(color: Colors.black),
         actions: <Widget>[
           TextButton(
             child: Text(

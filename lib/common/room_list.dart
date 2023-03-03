@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:global_configuration/global_configuration.dart';
 
 import '../models/room_model.dart';
+import '../pages/transmision_page.dart';
 import '../preferences/user_preferences.dart';
 import '../utils/alert_dialog.dart';
 import '../utils/date_formatter.dart';
@@ -11,7 +12,7 @@ import '../utils/date_formatter.dart';
 class RoomList extends StatelessWidget {
   final List<RoomModel> rooms;
 
-  const RoomList({required this.rooms});
+  const RoomList({super.key, required this.rooms});
 
   @override
   Widget build(BuildContext context) {
@@ -95,18 +96,23 @@ class RoomList extends StatelessWidget {
 
     if (room.startDate.compareTo(now) < 0) {
       if (room.endDate.compareTo(now) > 0) {
-        //TODO
-        /*  Navigator.push(
+        Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => TransmissionPage(id: room.id),
           ),
-        ); */
+        );
       } else {
         showMyDialog(
           context,
           "El evento ya ha finalizado",
-          const Text("Este evento ya ha finalizado."),
+          Text(
+            "Este evento ya ha finalizado.",
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium
+                ?.copyWith(color: Colors.black),
+          ),
         );
       }
     } else {

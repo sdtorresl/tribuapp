@@ -1,10 +1,13 @@
+import 'dart:developer';
+
+import 'package:bmwapp/core/color_schemes.dart';
+import 'package:bmwapp/utils/general.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class PosterView extends StatefulWidget {
-  final video;
+  final String video;
   final String title;
   final String subtitle;
   final String? attachment;
@@ -18,13 +21,13 @@ class PosterView extends StatefulWidget {
   });
 
   @override
-  _PosterViewState createState() => _PosterViewState();
+  State<PosterView> createState() => _PosterViewState();
 }
 
 class _PosterViewState extends State<PosterView> {
   @override
   Widget build(BuildContext context) {
-    if (widget.video == null || widget.video == "" || widget.video == "false") {
+    if (widget.video == "" || widget.video == "false") {
       return const Card(
         child: Padding(
           padding: EdgeInsets.all(20),
@@ -32,9 +35,9 @@ class _PosterViewState extends State<PosterView> {
         ),
       );
     }
-    print(widget.video);
+    log(widget.video);
 
-    YoutubePlayerController _controller = YoutubePlayerController(
+    YoutubePlayerController controller = YoutubePlayerController(
       initialVideoId: YoutubePlayer.convertUrlToId(widget.video)!,
       flags: const YoutubePlayerFlags(
         autoPlay: false,
@@ -58,7 +61,7 @@ class _PosterViewState extends State<PosterView> {
                 heightFactor: 1,
                 child: YoutubePlayerBuilder(
                   player: YoutubePlayer(
-                    controller: _controller,
+                    controller: controller,
                   ),
                   builder: (context, player) {
                     return Column(
@@ -93,16 +96,16 @@ class _PosterViewState extends State<PosterView> {
             Text(
               widget.subtitle,
               textAlign: TextAlign.justify,
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineSmall
-                  ?.copyWith(fontSize: 16),
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                    fontSize: 16,
+                    color: lightColorScheme.onPrimaryContainer,
+                  ),
             ),
             const Padding(
               padding: EdgeInsets.all(10),
             ),
             InkWell(
-              onTap: () => _downloadAttachment(widget.attachment),
+              onTap: () => launchURL(widget.attachment!),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -140,13 +143,5 @@ class _PosterViewState extends State<PosterView> {
         child: expansionTile,
       ),
     );
-  }
-
-  void _downloadAttachment(url) async {
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url);
-    } else {
-      throw 'Could not launch $url';
-    }
   }
 }

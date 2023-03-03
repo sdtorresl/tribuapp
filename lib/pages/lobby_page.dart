@@ -31,8 +31,8 @@ class _LobbyPageState extends State<LobbyPage> {
       future: eventProvider.getEvent(),
       builder: (BuildContext context, AsyncSnapshot<EventModel?> snapshot) {
         if (snapshot.hasData) {
-          EventModel? event = snapshot.data;
-          List<SectionModel>? sections = event?.sections;
+          EventModel event = snapshot.data!;
+          List<SectionModel>? sections = event.sections;
 
           Widget description = Container(
             color: MyApp().grey,
@@ -40,9 +40,9 @@ class _LobbyPageState extends State<LobbyPage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 EventDescription(
-                  title: event?.title,
-                  description: event?.description,
-                  picture: event?.picture,
+                  title: event.title ?? '',
+                  description: event.description ?? '',
+                  picture: event.picture ?? '',
                 ),
                 Transform.translate(
                   offset: const Offset(0, -19),
@@ -85,7 +85,7 @@ class _LobbyPageState extends State<LobbyPage> {
                                 fontWeight: FontWeight.w700),
                       ),
                     ),
-                    Countdown(startDate: event?.startDate),
+                    Countdown(startDate: event.startDate),
                     _sections(context, sections!),
                   ],
                 ),

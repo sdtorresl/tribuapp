@@ -9,7 +9,7 @@ class Countdown extends StatefulWidget {
   const Countdown({Key? key, this.startDate, this.title}) : super(key: key);
 
   @override
-  _CountdownState createState() => _CountdownState();
+  State<Countdown> createState() => _CountdownState();
 }
 
 class _CountdownState extends State<Countdown> {

@@ -16,7 +16,7 @@ class PrerecordedProvider {
       var response = await http.get(Uri.parse(url));
 
       if (response.statusCode == 200) {
-        print(response.body);
+        log(response.body);
         List<dynamic> jsonResponse = json.jsonDecode(response.body);
         List<PrerecordedModel> materials = [];
 
@@ -29,10 +29,10 @@ class PrerecordedProvider {
 
         return materials;
       } else {
-        print('Request failed with status: ${response.statusCode}.');
+        log('Request failed with status: ${response.statusCode}.');
       }
-    } catch (Exception) {
-      print(Exception);
+    } catch (e) {
+      log("Error getting recorded list", error: e);
     }
 
     return [];

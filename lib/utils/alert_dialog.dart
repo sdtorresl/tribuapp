@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:bmwapp/main.dart';
+
+import '../core/color_schemes.dart';
 
 Future<void> showMyDialog(
     BuildContext context, String title, Widget body) async {
@@ -23,7 +24,7 @@ Future<void> showMyDialog(
             child: Text(
               'Aceptar',
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  color: MyApp().accent, fontWeight: FontWeight.bold),
+                  color: CustomColors().accent, fontWeight: FontWeight.bold),
             ),
             onPressed: () {
               Navigator.of(context).pop();

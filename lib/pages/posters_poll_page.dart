@@ -4,7 +4,7 @@ import 'package:bmwapp/preferences/user_preferences.dart';
 // import 'package:bmwapp/providers/poster_provider.dart';
 import 'package:bmwapp/utils/alert_dialog.dart';
 
-import '../main.dart';
+import '../core/color_schemes.dart';
 import '../models/video_poster_model.dart';
 import '../providers/posters_provider.dart';
 import '../utils/column_builder.dart';
@@ -50,7 +50,7 @@ class _PostersPollPageState extends State<PostersPollPage> {
               margin: const EdgeInsets.symmetric(vertical: 15),
               padding: const EdgeInsets.all(15),
               decoration: BoxDecoration(
-                color: MyApp().primary,
+                color: CustomColors().primary,
                 borderRadius: BorderRadius.circular(10),
               ),
               width: size.width,
@@ -106,7 +106,7 @@ class _PostersPollPageState extends State<PostersPollPage> {
                       ? Icons.radio_button_checked
                       : Icons.radio_button_unchecked,
                   color: currentPoster == _selectedPoster
-                      ? MyApp().primary
+                      ? CustomColors().primary
                       : Colors.black,
                 ),
                 Expanded(
@@ -116,7 +116,7 @@ class _PostersPollPageState extends State<PostersPollPage> {
                       data[index].titulo!,
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                           color: currentPoster == _selectedPoster
-                              ? MyApp().primary
+                              ? CustomColors().primary
                               : Colors.black),
                     ),
                   ),

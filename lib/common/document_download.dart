@@ -1,4 +1,3 @@
-import 'package:bmwapp/core/color_schemes.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmwapp/utils/general.dart';
@@ -72,10 +71,8 @@ class _DocumentDownloadState extends State<DocumentDownload> {
         const SizedBox(height: 5),
         Text(
           widget.description,
-          style: Theme.of(context)
-              .textTheme
-              .bodyMedium
-              ?.copyWith(color: lightColorScheme.onPrimaryContainer),
+          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              color: Theme.of(context).colorScheme.onPrimaryContainer),
         ),
         const SizedBox(height: 15),
         SizedBox(

@@ -1,3 +1,4 @@
+import 'package:bmwapp/core/color_schemes.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -13,8 +14,9 @@ class SocialIcon extends StatelessWidget {
     return Container(
       height: 50.0,
       width: 50.0,
-      decoration:
-          const BoxDecoration(shape: BoxShape.circle, color: Colors.pink),
+      decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Theme.of(context).colorScheme.tertiaryContainer),
       child: IconButton(
         icon: icon,
         color: Colors.white,

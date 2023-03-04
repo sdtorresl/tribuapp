@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../common/custom_web_view.dart';
-import '../main.dart';
+import '../core/color_schemes.dart';
 import '../models/transmision_model.dart';
 import '../providers/transmision_provider.dart';
 
@@ -116,7 +116,7 @@ class _TransmissionPageState extends State<TransmissionPage> {
       child: Container(
         width: width,
         decoration: BoxDecoration(
-          color: selected ? MyApp().primaryLight : MyApp().grey,
+          color: selected ? CustomColors().primaryLight : CustomColors().grey,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(borderRadius),
             topRight: Radius.circular(borderRadius),

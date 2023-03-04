@@ -1,7 +1,7 @@
-import 'package:bmwapp/main.dart';
 import 'package:flutter/material.dart';
 
 import '../common/schedule_list.dart';
+import '../core/color_schemes.dart';
 import '../models/schedule_model.dart';
 import '../models/shcedule_category_model.dart';
 import '../providers/categories_provider.dart';
@@ -50,7 +50,7 @@ class _SchedulePageState extends State<SchedulePage> {
                             padding: const EdgeInsets.all(10),
                             child: Icon(
                               Icons.file_download,
-                              color: Theme.of(context).primaryColor,
+                              color: Theme.of(context).colorScheme.secondary,
                               size: 30,
                             ),
                           ),
@@ -74,7 +74,7 @@ class _SchedulePageState extends State<SchedulePage> {
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
-                  color: MyApp().grey,
+                  color: CustomColors().grey,
                 ),
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 width: MediaQuery.of(context).size.width,
@@ -88,7 +88,7 @@ class _SchedulePageState extends State<SchedulePage> {
         Expanded(
           child: Container(
             padding: const EdgeInsets.only(left: 25, top: 10, right: 25),
-            color: MyApp().grey,
+            color: CustomColors().grey,
             child: _listSchedule(context),
           ),
         )

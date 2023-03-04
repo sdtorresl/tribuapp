@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:bmwapp/main.dart';
+
+import '../core/color_schemes.dart';
 
 class ScheduleExpansionCard extends StatefulWidget {
   final String? header;
@@ -29,7 +30,7 @@ class _ScheduleExpansionCardState extends State<ScheduleExpansionCard> {
   @override
   Widget build(BuildContext context) {
     Color textColor = widget.highlight ? Colors.white : Colors.black;
-    Color iconColor = widget.highlight ? Colors.white : MyApp().accent;
+    Color iconColor = widget.highlight ? Colors.white : CustomColors().accent;
 
     List<Widget> headerItems;
     if (widget.header != null) {
@@ -109,7 +110,7 @@ class _ScheduleExpansionCardState extends State<ScheduleExpansionCard> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
-      color: widget.highlight ? MyApp().primaryLight : Colors.white,
+      color: widget.highlight ? CustomColors().primaryLight : Colors.white,
       elevation: 2.0,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),

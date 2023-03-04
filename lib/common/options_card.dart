@@ -17,7 +17,7 @@ class OptionsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.lightBlue[800],
+      color: Theme.of(context).colorScheme.primary,
       elevation: 2.0,
       margin: const EdgeInsets.only(bottom: 20),
       shape: RoundedRectangleBorder(

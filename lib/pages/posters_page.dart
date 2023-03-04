@@ -37,7 +37,7 @@ class PostersPage extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(10),
       child: Text(
-        'Video Pósters',
+        'Recursos adicionales',
         textAlign: TextAlign.left,
         style: Theme.of(context)
             .textTheme

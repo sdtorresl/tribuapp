@@ -1,13 +1,11 @@
-import 'package:bmwapp/core/color_schemes.dart';
-import 'package:flutter/material.dart';
-import 'package:bmwapp/common/recorded_list.dart';
-import 'package:bmwapp/common/room_list.dart';
-import 'package:bmwapp/main.dart';
-import 'package:bmwapp/providers/prerecorded_provider.dart';
-import 'package:bmwapp/providers/rooms_provider.dart';
-
 import '../models/prerecorded_model.dart';
 import '../models/room_model.dart';
+import 'package:bmwapp/common/recorded_list.dart';
+import 'package:bmwapp/common/room_list.dart';
+import 'package:bmwapp/core/color_schemes.dart';
+import 'package:bmwapp/providers/prerecorded_provider.dart';
+import 'package:bmwapp/providers/rooms_provider.dart';
+import 'package:flutter/material.dart';
 
 class RoomsPage extends StatefulWidget {
   const RoomsPage({Key? key}) : super(key: key);
@@ -20,7 +18,7 @@ class _RoomsPageState extends State<RoomsPage> {
   void initState() {
     super.initState();
 
-    _currentWidget = roomSelector(context);
+    _currentWidget = roomSelector();
   }
 
   late Widget _currentWidget;
@@ -47,82 +45,80 @@ class _RoomsPageState extends State<RoomsPage> {
     );
   }
 
-  Widget roomSelector(context) {
-    return Scaffold(
-      body: Center(
-        child: ListView(children: [
-          SizedBox(
-            // ignore: sort_child_properties_last
-            child: Container(
-              margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-              child: const Text(
-                'Selecciona la Sala',
-                style: TextStyle(
-                    fontSize: 22.0,
-                    fontFamily: 'PoppinsMedium',
-                    color: Colors.black,
-                    fontWeight: FontWeight.w600),
-              ),
-            ),
-            height: 50,
-          ),
-          Card(
+  Widget roomSelector() {
+    return Center(
+      child: ListView(children: [
+        SizedBox(
+          // ignore: sort_child_properties_last
+          child: Container(
             margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-            color: lightColorScheme.primary,
-            child: ListTile(
-              contentPadding:
-                  const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-              title: const Text(
-                "En vivo ahora mismo",
-                style: TextStyle(
-                  color: Colors.white,
+            child: const Text(
+              'Selecciona la Sala',
+              style: TextStyle(
+                  fontSize: 22.0,
                   fontFamily: 'PoppinsMedium',
-                ),
-              ),
-              subtitle: const Text(
-                  "¡Conéctate con el #saber y la #investigación!",
-                  style: TextStyle(fontFamily: 'Montserrat')),
-              trailing: const Icon(
-                Icons.video_call,
-                color: Colors.white,
-                size: 50,
-              ),
-              onTap: () {
-                setState(() => {_currentWidget = roomList(context)});
-              },
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600),
             ),
           ),
-          Card(
-            margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-            color: Colors.deepPurpleAccent,
-            child: ListTile(
-              contentPadding:
-                  const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-              title: const Text(
-                "Galería de experiencias",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'PoppinsMedium',
-                ),
-              ),
-              subtitle: const Text("¡Encuentra aquí Experiencias que motivan!",
-                  style: TextStyle(fontFamily: 'Montserrat')),
-              trailing: const Icon(
-                Icons.photo_album,
+          height: 50,
+        ),
+        Card(
+          margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          color: CustomColors().primary,
+          child: ListTile(
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+            title: const Text(
+              "En vivo ahora mismo",
+              style: TextStyle(
                 color: Colors.white,
-                size: 50,
+                fontFamily: 'PoppinsMedium',
               ),
-              enabled: true,
-              onTap: () {
-                setState(() => {_currentWidget = recordedList(context)});
-              },
             ),
+            subtitle: const Text(
+                "¡Conéctate con el #saber y la #investigación!",
+                style: TextStyle(fontFamily: 'Montserrat')),
+            trailing: const Icon(
+              Icons.video_call,
+              color: Colors.white,
+              size: 50,
+            ),
+            onTap: () {
+              setState(() => {_currentWidget = roomList(context)});
+            },
           ),
-          const SizedBox(
-            height: 20,
-          )
-        ]),
-      ),
+        ),
+        Card(
+          margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          color: Colors.deepPurpleAccent,
+          child: ListTile(
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+            title: const Text(
+              "Galería de experiencias",
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'PoppinsMedium',
+              ),
+            ),
+            subtitle: const Text("¡Encuentra aquí Experiencias que motivan!",
+                style: TextStyle(fontFamily: 'Montserrat')),
+            trailing: const Icon(
+              Icons.photo_album,
+              color: Colors.white,
+              size: 50,
+            ),
+            enabled: true,
+            onTap: () {
+              setState(() => {_currentWidget = recordedList(context)});
+            },
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        )
+      ]),
     );
   }
 
@@ -137,11 +133,11 @@ class _RoomsPageState extends State<RoomsPage> {
             children: [
               GestureDetector(
                 onTap: () {
-                  setState(() => {_currentWidget = roomSelector(context)});
+                  setState(() => {_currentWidget = roomSelector()});
                 },
                 child: Icon(
                   Icons.arrow_back_ios,
-                  color: MyApp().accent,
+                  color: CustomColors().accent,
                   size: 40,
                 ),
               ),
@@ -191,11 +187,11 @@ class _RoomsPageState extends State<RoomsPage> {
             children: [
               GestureDetector(
                 onTap: () {
-                  setState(() => {_currentWidget = roomSelector(context)});
+                  setState(() => {_currentWidget = roomSelector()});
                 },
                 child: Icon(
                   Icons.arrow_back_ios,
-                  color: MyApp().accent,
+                  color: CustomColors().accent,
                   size: 40,
                 ),
               ),
@@ -250,11 +246,11 @@ class _RoomsPageState extends State<RoomsPage> {
               const SizedBox(height: 20),
               GestureDetector(
                 onTap: () {
-                  setState(() => {_currentWidget = roomSelector(context)});
+                  setState(() => {_currentWidget = roomSelector()});
                 },
                 child: Icon(
                   Icons.arrow_back_ios,
-                  color: MyApp().accent,
+                  color: CustomColors().accent,
                   size: 40,
                 ),
               ),

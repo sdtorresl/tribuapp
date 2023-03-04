@@ -1,4 +1,3 @@
-import 'package:bmwapp/core/color_schemes.dart';
 import 'package:bmwapp/pages/options_page.dart';
 import 'package:bmwapp/pages/rooms_page.dart';
 import 'package:bmwapp/pages/schedule_page.dart';
@@ -37,7 +36,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     _animation = AnimationController(
       lowerBound: 0,
       upperBound: 1,
-      duration: const Duration(milliseconds: 2000),
+      duration: const Duration(milliseconds: 1000),
       vsync: this,
     )..forward();
   }
@@ -56,20 +55,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         controller: _tabController,
         children: _widgetOptions,
       ),
-      //_widgetOptions.elementAt(_selectedIndex),
-      // bottomNavigationBar: FABBottomAppBar(
-      //   onTabSelected: _onItemTapped,
-      //   selectedColor: Theme.of(context).colorScheme.secondary,
-      //   color: Colors.grey,
-      //   items: [
-      //     FABBottomAppBarItem(iconData: Icons.home_outlined, text: 'Recepción'),
-      //     FABBottomAppBarItem(
-      //         iconData: Icons.people_alt_outlined, text: 'Salas'),
-      //     FABBottomAppBarItem(iconData: Icons.today_outlined, text: 'Agenda'),
-      //     FABBottomAppBarItem(iconData: Icons.more_horiz_outlined, text: 'Más'),
-      //   ],
-      //   backgroundColor: Colors.white,
-      // ),
       bottomNavigationBar: SafeArea(
         child: TabBar(
           tabs: [
@@ -149,9 +134,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   }
 
   Widget _tabBarItem({IconData? icon, String? text}) => Tab(
-      icon: Icon(
-        icon,
-        color: lightColorScheme.primary,
-      ),
-      text: text);
+        icon: Icon(
+          icon,
+          color: Theme.of(context).colorScheme.primary,
+        ),
+        text: text,
+      );
 }

@@ -45,8 +45,8 @@ class EventDescription extends StatelessWidget {
       decoration: BoxDecoration(
           gradient: LinearGradient(
         colors: [
-          lightColorScheme.primary,
-          lightColorScheme.secondary,
+          Theme.of(context).colorScheme.primary,
+          Theme.of(context).colorScheme.secondary,
         ],
         begin: Alignment.topRight,
         end: Alignment.bottomLeft,

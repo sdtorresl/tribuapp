@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:bmwapp/core/color_schemes.dart';
 import 'package:bmwapp/utils/general.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -98,7 +97,7 @@ class _PosterViewState extends State<PosterView> {
               textAlign: TextAlign.justify,
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                     fontSize: 16,
-                    color: lightColorScheme.onPrimaryContainer,
+                    color: Theme.of(context).colorScheme.onPrimaryContainer,
                   ),
             ),
             const Padding(

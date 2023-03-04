@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:bmwapp/common/countdown.dart';
 import 'package:bmwapp/common/event_description.dart';
 import 'package:bmwapp/common/schedule_expansion_card.dart';
-import 'package:bmwapp/main.dart';
 import 'package:bmwapp/models/event_model.dart';
 import 'package:bmwapp/models/section_model.dart';
 import 'package:bmwapp/utils/column_builder.dart';
 
+import '../core/color_schemes.dart';
 import '../providers/event_provider.dart';
 
 class LobbyPage extends StatefulWidget {
@@ -35,7 +35,7 @@ class _LobbyPageState extends State<LobbyPage> {
           List<SectionModel>? sections = event.sections;
 
           Widget description = Container(
-            color: MyApp().grey,
+            color: CustomColors().grey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
@@ -49,7 +49,7 @@ class _LobbyPageState extends State<LobbyPage> {
                   child: Container(
                     height: 20,
                     decoration: BoxDecoration(
-                      color: MyApp().grey,
+                      color: CustomColors().grey,
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(20),
                         topRight: Radius.circular(20),
@@ -66,7 +66,7 @@ class _LobbyPageState extends State<LobbyPage> {
               description,
               Container(
                 decoration: BoxDecoration(
-                  color: MyApp().grey,
+                  color: CustomColors().grey,
                 ),
                 padding: const EdgeInsets.only(left: 25, right: 25, bottom: 40),
                 child: Column(

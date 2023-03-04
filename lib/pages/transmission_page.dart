@@ -35,7 +35,7 @@
 //           return Scaffold(
 //             appBar: AppBar(
 //               iconTheme: IconThemeData(
-//                 color: const MyApp().accent,
+//                 color: const CustomColors().accent,
 //               ),
 //               shadowColor: Colors.transparent,
 //               backgroundColor: Colors.white,

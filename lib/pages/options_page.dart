@@ -35,7 +35,7 @@ class OptionsPage extends StatelessWidget {
             onTap: () => Navigator.of(context).pushNamed('documents'),
           ),
           OptionsCard(
-            title: 'Video pósters',
+            title: 'Recursos adicionales',
             icon: Icons.tv,
             url: 'http://',
             onTap: () {

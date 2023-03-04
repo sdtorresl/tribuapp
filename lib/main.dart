@@ -21,13 +21,6 @@ class MyApp extends StatelessWidget {
   MyApp({super.key});
 
   final prefs = UserPreferences();
-  Color get accent => const Color(0xffe7326e);
-  Color get accentLight => const Color(0xffff6c9c);
-  Color get accentDark => const Color(0xffaf0043);
-  Color get primary => const Color(0xff0074ca);
-  Color get primaryLight => const Color(0xff5ba2fe);
-  Color get primaryDark => const Color(0xff004999);
-  Color get grey => const Color(0xfff3f3f3);
 
   // This widget is the root of your application.
   @override

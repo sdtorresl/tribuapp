@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:bmwapp/common/action_button.dart';
-import 'package:bmwapp/common/poster_view.dart';
+import 'package:tribuapp/common/action_button.dart';
+import 'package:tribuapp/common/poster_view.dart';
 
 import '../providers/posters_provider.dart';
-// import 'package:bmwapp/providers/poster_provider.dart';
+// import 'package:tribuapp/providers/poster_provider.dart';
 
 class PostersPage extends StatelessWidget {
   const PostersPage({super.key});

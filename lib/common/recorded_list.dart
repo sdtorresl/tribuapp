@@ -1,4 +1,4 @@
-import 'package:bmwapp/models/prerecorded_model.dart';
+import 'package:tribuapp/models/prerecorded_model.dart';
 import 'package:flutter/material.dart';
 
 import '../pages/recorded_page.dart';

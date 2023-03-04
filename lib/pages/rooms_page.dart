@@ -1,10 +1,10 @@
 import '../models/prerecorded_model.dart';
 import '../models/room_model.dart';
-import 'package:bmwapp/common/recorded_list.dart';
-import 'package:bmwapp/common/room_list.dart';
-import 'package:bmwapp/core/color_schemes.dart';
-import 'package:bmwapp/providers/prerecorded_provider.dart';
-import 'package:bmwapp/providers/rooms_provider.dart';
+import 'package:tribuapp/common/recorded_list.dart';
+import 'package:tribuapp/common/room_list.dart';
+import 'package:tribuapp/core/color_schemes.dart';
+import 'package:tribuapp/providers/prerecorded_provider.dart';
+import 'package:tribuapp/providers/rooms_provider.dart';
 import 'package:flutter/material.dart';
 
 class RoomsPage extends StatefulWidget {

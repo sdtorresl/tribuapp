@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="co.innovaciones.bmwapp">
+    package="co.innovaciones.tribuapp">
     <application
         android:label="Eventos TRIBU"
         android:name="${applicationName}"

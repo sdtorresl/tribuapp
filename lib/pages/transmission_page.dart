@@ -1,8 +1,8 @@
 // import 'package:flutter/material.dart';
-// import 'package:bmwapp/common/custom_webview.dart';
-// import 'package:bmwapp/main.dart';
-// import 'package:bmwapp/models/transmission_model.dart';
-// import 'package:bmwapp/providers/transmission_provider.dart';
+// import 'package:tribuapp/common/custom_webview.dart';
+// import 'package:tribuapp/main.dart';
+// import 'package:tribuapp/models/transmission_model.dart';
+// import 'package:tribuapp/providers/transmission_provider.dart';
 
 // class TransmissionPage extends StatefulWidget {
 //   final int id;

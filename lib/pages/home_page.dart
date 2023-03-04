@@ -1,12 +1,12 @@
-import 'package:bmwapp/pages/options_page.dart';
-import 'package:bmwapp/pages/rooms_page.dart';
-import 'package:bmwapp/pages/schedule_page.dart';
-import 'package:bmwapp/pages/transmision_page.dart';
-import 'package:bmwapp/preferences/user_preferences.dart';
+import 'package:tribuapp/pages/options_page.dart';
+import 'package:tribuapp/pages/rooms_page.dart';
+import 'package:tribuapp/pages/schedule_page.dart';
+import 'package:tribuapp/pages/transmision_page.dart';
+import 'package:tribuapp/preferences/user_preferences.dart';
 import 'package:flutter/material.dart';
-import 'package:bmwapp/common/expandable_fab.dart';
-import 'package:bmwapp/models/room_model.dart';
-import 'package:bmwapp/pages/lobby_page.dart';
+import 'package:tribuapp/common/expandable_fab.dart';
+import 'package:tribuapp/models/room_model.dart';
+import 'package:tribuapp/pages/lobby_page.dart';
 
 import '../providers/rooms_provider.dart';
 

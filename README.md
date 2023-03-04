@@ -1,4 +1,4 @@
-# bmwapp
+# tribuapp
 
 A new Flutter project.
 

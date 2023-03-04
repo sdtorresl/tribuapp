@@ -1,9 +1,9 @@
-import 'package:bmwapp/providers/event_provider.dart';
+import 'package:tribuapp/providers/event_provider.dart';
 import 'package:flutter/material.dart';
 
-import 'package:bmwapp/common/document_download.dart';
-import 'package:bmwapp/models/document_model.dart';
-// import 'package:bmwapp/providers/event_provider.dart';
+import 'package:tribuapp/common/document_download.dart';
+import 'package:tribuapp/models/document_model.dart';
+// import 'package:tribuapp/providers/event_provider.dart';
 
 import '../models/event_model.dart';
 

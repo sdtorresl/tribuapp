@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 
-import 'package:bmwapp/models/section_model.dart';
+import 'package:tribuapp/models/section_model.dart';
 
 import 'document_model.dart';
 

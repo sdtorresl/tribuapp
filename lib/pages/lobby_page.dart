@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:bmwapp/common/countdown.dart';
-import 'package:bmwapp/common/event_description.dart';
-import 'package:bmwapp/common/schedule_expansion_card.dart';
-import 'package:bmwapp/models/event_model.dart';
-import 'package:bmwapp/models/section_model.dart';
-import 'package:bmwapp/utils/column_builder.dart';
+import 'package:tribuapp/common/countdown.dart';
+import 'package:tribuapp/common/event_description.dart';
+import 'package:tribuapp/common/schedule_expansion_card.dart';
+import 'package:tribuapp/models/event_model.dart';
+import 'package:tribuapp/models/section_model.dart';
+import 'package:tribuapp/utils/column_builder.dart';
 
 import '../core/color_schemes.dart';
 import '../providers/event_provider.dart';

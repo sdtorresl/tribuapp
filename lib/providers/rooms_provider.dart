@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:global_configuration/global_configuration.dart';
-import 'package:bmwapp/models/room_model.dart';
+import 'package:tribuapp/models/room_model.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as json;
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:bmwapp/common/action_button.dart';
-import 'package:bmwapp/preferences/user_preferences.dart';
-// import 'package:bmwapp/providers/poster_provider.dart';
-import 'package:bmwapp/utils/alert_dialog.dart';
+import 'package:tribuapp/common/action_button.dart';
+import 'package:tribuapp/preferences/user_preferences.dart';
+// import 'package:tribuapp/providers/poster_provider.dart';
+import 'package:tribuapp/utils/alert_dialog.dart';
 
 import '../core/color_schemes.dart';
 import '../models/video_poster_model.dart';

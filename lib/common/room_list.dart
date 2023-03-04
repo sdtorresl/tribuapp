@@ -1,4 +1,4 @@
-import 'package:bmwapp/common/schedule_expansion_card.dart';
+import 'package:tribuapp/common/schedule_expansion_card.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:global_configuration/global_configuration.dart';

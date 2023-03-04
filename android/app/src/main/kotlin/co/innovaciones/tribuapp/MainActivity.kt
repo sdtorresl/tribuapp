@@ -1,4 +1,4 @@
-package co.innovaciones.bmwapp
+package co.innovaciones.tribuapp
 
 import io.flutter.embedding.android.FlutterActivity
 

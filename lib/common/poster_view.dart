@@ -1,9 +1,9 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:bmwapp/common/video_poster.dart';
+import 'package:tribuapp/common/video_poster.dart';
 
-import 'package:bmwapp/models/video_poster_model.dart';
+import 'package:tribuapp/models/video_poster_model.dart';
 
 class PosterList extends StatelessWidget {
   final List<VideoPosterModel> posters;

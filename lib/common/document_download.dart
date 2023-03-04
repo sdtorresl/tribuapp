@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:bmwapp/utils/general.dart';
+import 'package:tribuapp/utils/general.dart';
 
 class DocumentDownload extends StatefulWidget {
   final String title;

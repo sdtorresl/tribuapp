@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:bmwapp/common/onboarding_view.dart';
-import 'package:bmwapp/preferences/user_preferences.dart';
+import 'package:tribuapp/common/onboarding_view.dart';
+import 'package:tribuapp/preferences/user_preferences.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class OnboardingPage extends StatefulWidget {

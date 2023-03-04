@@ -1,4 +1,4 @@
-import 'package:bmwapp/bloc/login_bloc.dart';
+import 'package:tribuapp/bloc/login_bloc.dart';
 import 'package:flutter/material.dart';
 
 class Provider extends InheritedWidget {

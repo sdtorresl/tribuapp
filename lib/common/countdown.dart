@@ -1,4 +1,4 @@
-import 'package:bmwapp/core/color_schemes.dart';
+import 'package:tribuapp/core/color_schemes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 

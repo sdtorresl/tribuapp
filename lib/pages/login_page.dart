@@ -1,6 +1,6 @@
-import 'package:bmwapp/bloc/login_bloc.dart';
-import 'package:bmwapp/bloc/provider.dart';
-import 'package:bmwapp/models/users_model.dart';
+import 'package:tribuapp/bloc/login_bloc.dart';
+import 'package:tribuapp/bloc/provider.dart';
+import 'package:tribuapp/models/users_model.dart';
 import 'package:flutter/material.dart';
 
 import '../providers/users_provider.dart';

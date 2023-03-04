@@ -1,13 +1,13 @@
-import 'package:bmwapp/bloc/provider.dart';
-import 'package:bmwapp/core/app_theme.dart';
-import 'package:bmwapp/pages/login_page.dart';
-import 'package:bmwapp/pages/home_page.dart';
-import 'package:bmwapp/pages/posters_poll_page.dart';
+import 'package:tribuapp/bloc/provider.dart';
+import 'package:tribuapp/core/app_theme.dart';
+import 'package:tribuapp/pages/login_page.dart';
+import 'package:tribuapp/pages/home_page.dart';
+import 'package:tribuapp/pages/posters_poll_page.dart';
 import 'package:flutter/material.dart';
-import 'package:bmwapp/preferences/user_preferences.dart';
-import 'package:bmwapp/pages/onboarding_page.dart';
-import 'package:bmwapp/pages/documents_page.dart';
-import 'package:bmwapp/pages/posters_page.dart';
+import 'package:tribuapp/preferences/user_preferences.dart';
+import 'package:tribuapp/pages/onboarding_page.dart';
+import 'package:tribuapp/pages/documents_page.dart';
+import 'package:tribuapp/pages/posters_page.dart';
 import 'package:global_configuration/global_configuration.dart';
 
 void main() async {

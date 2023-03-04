@@ -89,6 +89,22 @@ flutter:
       fonts:
         - asset: assets/fonts/BMWTypeNextLatin-Bold.otf
 
+    - family: RajdhaniRegular
+      fonts:
+        - asset: assets/fonts/Rajdhani/Rajdhani-Regular.ttf
+
+    - family: RajdhaniMedium
+      fonts:
+        - asset: assets/fonts/Rajdhani/Rajdhani-Medium.ttf
+
+    - family: RajdhaniLight
+      fonts:
+        - asset: assets/fonts/Rajdhani/Rajdhani-Light.ttf
+
+    - family: RajdhaniBold
+      fonts:
+        - asset: assets/fonts/Rajdhani/Rajdhani-Bold.ttf
+
     - family: Montserrat
       fonts:
         - asset: assets/fonts/Montserrat/Montserrat-Regular.ttf

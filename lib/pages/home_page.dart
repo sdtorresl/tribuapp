@@ -128,8 +128,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           "assets/img/logo-bmw-dark.png",
         ),
       ),
-      title: const Text(
-        "Eventos Tribu",
+      title: Text(
+        "Eventos TRIBU",
+        style: Theme.of(context).textTheme.headline1?.copyWith(
+              color: Colors.black,
+            ),
       ),
       centerTitle: false,
       actions: [

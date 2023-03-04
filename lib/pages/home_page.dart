@@ -2,6 +2,7 @@ import 'package:bmwapp/pages/options_page.dart';
 import 'package:bmwapp/pages/rooms_page.dart';
 import 'package:bmwapp/pages/schedule_page.dart';
 import 'package:bmwapp/pages/transmision_page.dart';
+import 'package:bmwapp/preferences/user_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:bmwapp/common/expandable_fab.dart';
 import 'package:bmwapp/models/room_model.dart';
@@ -130,6 +131,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       title: const Text(
         "Eventos Tribu",
       ),
+      centerTitle: false,
+      actions: [
+        IconButton(
+          onPressed: () {
+            UserPreferences prefs = UserPreferences();
+            prefs.token = null;
+            Navigator.pushReplacementNamed(context, 'login');
+          },
+          icon: const Icon(Icons.logout),
+        )
+      ],
     );
   }
 

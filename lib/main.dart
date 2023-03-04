@@ -44,6 +44,7 @@ class MyApp extends StatelessWidget {
   }
 
   String _initialRoute() {
+    return 'home';
     if (prefs.onBoardingViewed == true) {
       if (prefs.token != null) {
         return 'home';

@@ -1,3 +1,4 @@
+import 'package:bmwapp/core/color_schemes.dart';
 import 'package:flutter/material.dart';
 import 'package:bmwapp/common/recorded_list.dart';
 import 'package:bmwapp/common/room_list.dart';
@@ -67,7 +68,7 @@ class _RoomsPageState extends State<RoomsPage> {
           ),
           Card(
             margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-            color: MyApp().primary,
+            color: lightColorScheme.primary,
             child: ListTile(
               contentPadding:
                   const EdgeInsets.symmetric(vertical: 20, horizontal: 30),

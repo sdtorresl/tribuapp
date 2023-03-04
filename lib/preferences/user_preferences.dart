@@ -6,7 +6,7 @@ class UserPreferences {
   static const bool _onBoardingViewed = false;
   static const bool _isPremium = false;
   static const int _selectedPoster = 1;
-  static const String _token = '';
+  static const String? _token = null;
 
   factory UserPreferences() {
     return _instance;
@@ -31,9 +31,11 @@ class UserPreferences {
     _prefs.setBool('onboardingViewed', value);
   }
 
-  set token(String token) => _prefs.setString('token', token);
+  set token(String? token) {
+    if (token != null) _prefs.setString('token', token);
+  }
 
-  String get token => _prefs.getString('token') ?? _token;
+  String? get token => _prefs.getString('token');
 
   set posterVoted(bool voted) => _prefs.setBool('posterVoted', voted);
 

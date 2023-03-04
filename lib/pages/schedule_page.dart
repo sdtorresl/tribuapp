@@ -24,7 +24,7 @@ class _SchedulePageState extends State<SchedulePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Container(
+        Padding(
           padding:
               const EdgeInsets.only(left: 25, top: 20, right: 20, bottom: 10),
           child: Column(
@@ -62,10 +62,13 @@ class _SchedulePageState extends State<SchedulePage> {
                   ),
                 ],
               ),
-              const SizedBox(height: 20.0),
+              const SizedBox(height: 5.0),
               Text(
-                'Selecciona la sala ',
-                style: Theme.of(context).textTheme.headline4,
+                'Selecciona la sala',
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4
+                    ?.copyWith(color: Colors.black),
               ),
               const SizedBox(height: 5),
               Container(

@@ -1,6 +1,10 @@
 import 'package:bmwapp/bloc/login_bloc.dart';
 import 'package:bmwapp/bloc/provider.dart';
+import 'package:bmwapp/models/users_model.dart';
 import 'package:flutter/material.dart';
+
+import '../providers/users_provider.dart';
+import '../utils/alert_dialog.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -79,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 50),
                   Container(
                     alignment: Alignment.center,
-                    child: _icfesImage(),
+                    child: _brandLogo(),
                   ),
                 ],
               ),
@@ -183,22 +187,42 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _icfesImage() {
-    return Image.asset("assets/img/Group 42.png");
+  Widget _brandLogo() {
+    return Column(
+      children: [
+        Text(
+          "BY",
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium
+              ?.copyWith(color: Colors.grey),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Image.asset(
+          "assets/img/tribu-logo.png",
+          height: 40,
+        ),
+      ],
+    );
   }
 
   _login(LoginBloc bloc, BuildContext context) async {
-    /* UserProvider userProvider = UserProvider();
-    UserModel user = await userProvider.login(bloc.email, bloc.password);
+    UserProvider userProvider = UserProvider();
+    UserModel? user = await userProvider.login(bloc.email, bloc.password);
 
-    if (user != null) {
-      Navigator.pushReplacementNamed(context, 'home');
-    } else {
-      showMyDialog(
-        context,
-        "Error",
-        const Text("El correo o el código no son válidos, intenta nuevamente."),
-      );
-    } */
+    if (mounted) {
+      if (user != null) {
+        Navigator.pushReplacementNamed(context, 'home');
+      } else {
+        showMyDialog(
+          context,
+          "Error",
+          const Text(
+              "El correo o el código no son válidos, intenta nuevamente."),
+        );
+      }
+    }
   }
 }

@@ -1,6 +1,7 @@
 import 'package:bmwapp/models/prerecorded_model.dart';
 import 'package:flutter/material.dart';
 
+import '../pages/recorded_page.dart';
 import '../utils/date_formatter.dart';
 import 'schedule_expansion_card.dart';
 
@@ -46,21 +47,21 @@ class RecordedList extends StatelessWidget {
                         .headline4
                         ?.copyWith(color: textColor, fontSize: 16),
                   ),
+                  const SizedBox(height: 15),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: ElevatedButton(
+                      child: Text(
+                        "Ver",
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline4
+                            ?.copyWith(color: Colors.white),
+                      ),
+                      onPressed: () => _openRecord(context, record),
+                    ),
+                  ),
                 ],
-              ),
-            ),
-            const SizedBox(height: 15),
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: ElevatedButton(
-                child: Text(
-                  "Ver",
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline4
-                      ?.copyWith(color: Colors.white),
-                ),
-                onPressed: () => _openRecord(context, record),
               ),
             ),
             const SizedBox(height: 10),
@@ -81,13 +82,13 @@ class RecordedList extends StatelessWidget {
   }
 
   _openRecord(BuildContext context, PrerecordedModel record) {
-    /* Navigator.push(
+    Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => RecordedPage(
           record: record,
         ),
       ),
-    ); */
+    );
   }
 }

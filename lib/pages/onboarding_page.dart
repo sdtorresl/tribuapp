@@ -46,6 +46,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               margin: const EdgeInsets.only(top: 40),
               alignment: Alignment.bottomRight,
               height: 30,
+              width: 30,
               child: FloatingActionButton(
                 heroTag: 'close-button',
                 elevation: 5.0,

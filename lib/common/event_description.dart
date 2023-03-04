@@ -1,3 +1,4 @@
+import 'package:bmwapp/core/color_schemes.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -41,12 +42,15 @@ class EventDescription extends StatelessWidget {
     );
 
     return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          fit: BoxFit.fitWidth,
-          image: AssetImage("assets/img/Group 194.png"),
-        ),
-      ),
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+        colors: [
+          lightColorScheme.primary,
+          lightColorScheme.secondary,
+        ],
+        begin: Alignment.topRight,
+        end: Alignment.bottomLeft,
+      )),
       child: card,
     );
   }

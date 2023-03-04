@@ -53,4 +53,19 @@ ThemeData lightTheme = ThemeData.light().copyWith(
     backgroundColor: lightColorScheme.tertiaryContainer,
     foregroundColor: lightColorScheme.onTertiaryContainer,
   ),
+  tabBarTheme: TabBarTheme(
+    labelColor: lightColorScheme.primary,
+    labelStyle: const TextStyle(
+      fontSize: 15,
+    ),
+    unselectedLabelStyle: const TextStyle(fontSize: 12),
+    indicator: BoxDecoration(
+      border: Border(
+        bottom: BorderSide(
+          color: lightColorScheme.primary,
+          width: 3,
+        ),
+      ),
+    ),
+  ),
 );

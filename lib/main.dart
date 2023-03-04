@@ -7,13 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:bmwapp/preferences/user_preferences.dart';
 import 'package:bmwapp/pages/onboarding_page.dart';
 import 'package:bmwapp/pages/documents_page.dart';
-
-// import 'package:bmwapp/pages/transmission_page.dart';
-
-// import 'package:global_configuration/global_configuration.dart';
 import 'package:bmwapp/pages/posters_page.dart';
 import 'package:global_configuration/global_configuration.dart';
-// import 'package:bmwapp/bloc/provider_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -57,7 +52,8 @@ class MyApp extends StatelessWidget {
 
   String _initialRoute() {
     return 'home';
-    /* if (prefs.onboardingViewed == true) {
+
+    if (prefs.onBoardingViewed == true) {
       if (prefs.token != null) {
         return 'home';
       } else {
@@ -65,6 +61,6 @@ class MyApp extends StatelessWidget {
       }
     } else {
       return 'onboarding';
-    } */
+    }
   }
 }

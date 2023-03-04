@@ -1,17 +1,14 @@
+import 'package:bmwapp/core/color_schemes.dart';
 import 'package:bmwapp/pages/options_page.dart';
 import 'package:bmwapp/pages/rooms_page.dart';
 import 'package:bmwapp/pages/schedule_page.dart';
 import 'package:bmwapp/pages/transmision_page.dart';
 import 'package:flutter/material.dart';
 import 'package:bmwapp/common/expandable_fab.dart';
-import 'package:bmwapp/common/fab_bottom_app_bar.dart';
 import 'package:bmwapp/models/room_model.dart';
-// import 'package:bmwapp/pages/schedule_page.dart';
 import 'package:bmwapp/pages/lobby_page.dart';
 
 import '../providers/rooms_provider.dart';
-// import 'package:bmwapp/pages/transmission_page.dart';
-// import 'package:bmwapp/providers/rooms_provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -21,7 +18,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-  int _selectedIndex = 0;
   late TabController _tabController;
   final roomsProvider = RoomsProvider();
   late AnimationController _animation;
@@ -33,28 +29,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     const OptionsPage(),
   ];
 
-  void _onItemTapped(int index) {
-    _tabController.animateTo(index);
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   void initState() {
     super.initState();
-    _selectedIndex = 0;
     _tabController = TabController(vsync: this, length: _widgetOptions.length);
-    _tabController.addListener(() {
-      setState(() {
-        if (_tabController.indexIsChanging ||
-            (_tabController.animation?.value == _tabController.index)) {
-          setState(() {
-            _selectedIndex = _tabController.index;
-          });
-        }
-      });
-    });
+
     _animation = AnimationController(
       lowerBound: 0,
       upperBound: 1,
@@ -78,18 +57,29 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         children: _widgetOptions,
       ),
       //_widgetOptions.elementAt(_selectedIndex),
-      bottomNavigationBar: FABBottomAppBar(
-        onTabSelected: _onItemTapped,
-        selectedColor: Theme.of(context).colorScheme.secondary,
-        color: Colors.grey,
-        items: [
-          FABBottomAppBarItem(iconData: Icons.home_outlined, text: 'Recepción'),
-          FABBottomAppBarItem(
-              iconData: Icons.people_alt_outlined, text: 'Salas'),
-          FABBottomAppBarItem(iconData: Icons.today_outlined, text: 'Agenda'),
-          FABBottomAppBarItem(iconData: Icons.more_horiz_outlined, text: 'Más'),
-        ],
-        backgroundColor: Colors.white,
+      // bottomNavigationBar: FABBottomAppBar(
+      //   onTabSelected: _onItemTapped,
+      //   selectedColor: Theme.of(context).colorScheme.secondary,
+      //   color: Colors.grey,
+      //   items: [
+      //     FABBottomAppBarItem(iconData: Icons.home_outlined, text: 'Recepción'),
+      //     FABBottomAppBarItem(
+      //         iconData: Icons.people_alt_outlined, text: 'Salas'),
+      //     FABBottomAppBarItem(iconData: Icons.today_outlined, text: 'Agenda'),
+      //     FABBottomAppBarItem(iconData: Icons.more_horiz_outlined, text: 'Más'),
+      //   ],
+      //   backgroundColor: Colors.white,
+      // ),
+      bottomNavigationBar: SafeArea(
+        child: TabBar(
+          tabs: [
+            _tabBarItem(icon: Icons.home_outlined, text: 'Recepción'),
+            _tabBarItem(icon: Icons.people_alt_outlined, text: 'Salas'),
+            _tabBarItem(icon: Icons.today_outlined, text: 'Agenda'),
+            _tabBarItem(icon: Icons.more_horiz_outlined, text: 'Más'),
+          ],
+          controller: _tabController,
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FutureBuilder(
@@ -157,4 +147,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       ),
     );
   }
+
+  Widget _tabBarItem({IconData? icon, String? text}) => Tab(
+      icon: Icon(
+        icon,
+        color: lightColorScheme.primary,
+      ),
+      text: text);
 }

@@ -24,7 +24,7 @@ class ScheduleExpansionCard extends StatefulWidget {
 }
 
 class _ScheduleExpansionCardState extends State<ScheduleExpansionCard> {
-  final bool _expanded = false;
+  bool _expanded = false;
 
   @override
   Widget build(BuildContext context) {
@@ -63,43 +63,46 @@ class _ScheduleExpansionCardState extends State<ScheduleExpansionCard> {
       ];
     }
 
-    var expansionTile = ExpansionTile(
-      trailing: _expanded
-          ? Icon(
-              Icons.remove_circle_outline,
-              color: iconColor,
-            )
-          : Icon(
-              Icons.add_circle_outline,
-              color: iconColor,
-            ),
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: headerItems,
-      ),
-      subtitle: widget.subtitle != null
-          ? Container(
-              padding: const EdgeInsets.only(top: 5, bottom: 5),
-              child: Text(
-                widget.subtitle ?? '',
-                textAlign: TextAlign.justify,
-                style: Theme.of(context)
-                    .textTheme
-                    .displaySmall
-                    ?.copyWith(color: textColor, fontSize: 15),
+    var expansionTile = Theme(
+      data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+      child: ExpansionTile(
+        trailing: _expanded
+            ? Icon(
+                Icons.remove_circle_outline,
+                color: iconColor,
+              )
+            : Icon(
+                Icons.add_circle_outline,
+                color: iconColor,
               ),
-            )
-          : null,
-      // onExpansionChanged: (changed) {
-      //   setState(() {
-      //     _expanded = changed;
-      //   });
-      //   if (widget.onChanged == null) {
-      //     widget.onChanged();
-      //   }
-      // },
-      initiallyExpanded: _expanded,
-      children: <Widget>[widget.hidden],
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: headerItems,
+        ),
+        subtitle: widget.subtitle != null
+            ? Container(
+                padding: const EdgeInsets.only(top: 5, bottom: 5),
+                child: Text(
+                  widget.subtitle ?? '',
+                  textAlign: TextAlign.justify,
+                  style: Theme.of(context)
+                      .textTheme
+                      .displaySmall
+                      ?.copyWith(color: textColor, fontSize: 15),
+                ),
+              )
+            : null,
+        onExpansionChanged: (changed) {
+          setState(() {
+            _expanded = changed;
+          });
+          if (widget.onChanged != null) {
+            widget.onChanged!();
+          }
+        },
+        initiallyExpanded: _expanded,
+        children: <Widget>[widget.hidden],
+      ),
     );
 
     return Card(

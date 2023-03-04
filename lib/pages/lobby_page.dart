@@ -111,11 +111,24 @@ class _LobbyPageState extends State<LobbyPage> {
         SectionModel section = sections[index];
         return ScheduleExpansionCard(
           title: section.title,
-          subtitle: section.description,
-          hidden: CachedNetworkImage(
-            imageUrl: section.picture,
-            placeholder: (context, url) => const CircularProgressIndicator(),
-            errorWidget: (context, url, error) => const Icon(Icons.error),
+          hidden: Column(
+            children: [
+              Text(
+                section.description,
+                style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                      color: Colors.grey,
+                    ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              CachedNetworkImage(
+                imageUrl: section.picture,
+                placeholder: (context, url) =>
+                    const CircularProgressIndicator(),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
+              ),
+            ],
           ),
         );
       },

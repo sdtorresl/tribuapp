@@ -116,14 +116,18 @@ class _LoginPageState extends State<LoginPage> {
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         return TextField(
           keyboardType: TextInputType.emailAddress,
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium
+              ?.copyWith(color: Colors.black),
           decoration: InputDecoration(
             hintText: 'Escribe tu correo electrónico',
             errorText:
                 snapshot.error != null ? snapshot.error!.toString() : null,
             errorStyle: Theme.of(context)
                 .textTheme
-                .headline4
-                ?.copyWith(color: Colors.red),
+                .bodySmall
+                ?.copyWith(color: Colors.red, fontSize: 14),
           ),
           onChanged: bloc.changeEmail,
         );
@@ -137,20 +141,24 @@ class _LoginPageState extends State<LoginPage> {
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         return TextField(
           obscureText: _isPasswordHidden,
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium
+              ?.copyWith(color: Colors.black),
           decoration: InputDecoration(
-              hintText: "Ingresa el código que recibiste",
-              errorText:
-                  snapshot.error != null ? snapshot.error!.toString() : null,
-              errorStyle: Theme.of(context)
-                  .textTheme
-                  .headline4
-                  ?.copyWith(color: Colors.red),
-              suffixIcon: IconButton(
-                icon: Icon(_isPasswordHidden
-                    ? Icons.visibility
-                    : Icons.visibility_off),
-                onPressed: _toggleVisibility,
-              )),
+            hintText: "Ingresa el código que recibiste",
+            errorText:
+                snapshot.error != null ? snapshot.error!.toString() : null,
+            errorStyle: Theme.of(context)
+                .textTheme
+                .bodySmall
+                ?.copyWith(color: Colors.red, fontSize: 14),
+            suffixIcon: IconButton(
+              icon: Icon(
+                  _isPasswordHidden ? Icons.visibility : Icons.visibility_off),
+              onPressed: _toggleVisibility,
+            ),
+          ),
           onChanged: bloc.changePassword,
         );
       },
@@ -177,7 +185,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 Icon(
                   Icons.arrow_forward_outlined,
-                  color: Colors.black,
                 )
               ],
             ),

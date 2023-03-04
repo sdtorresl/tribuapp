@@ -42,6 +42,7 @@ ThemeData lightTheme = ThemeData.light().copyWith(
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       backgroundColor: lightColorScheme.primary,
+      foregroundColor: Colors.white,
       textStyle: const TextStyle(
         fontSize: 20,
         fontFamily: 'Poppins',

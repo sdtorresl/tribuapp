@@ -6,7 +6,6 @@ class UserPreferences {
   static const bool _onBoardingViewed = false;
   static const bool _isPremium = false;
   static const int _selectedPoster = 1;
-  static const String? _token = null;
 
   factory UserPreferences() {
     return _instance;

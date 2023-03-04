@@ -128,7 +128,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         ),
       ),
       title: const Text(
-        "Eventos BMW",
+        "Eventos Tribu",
       ),
     );
   }

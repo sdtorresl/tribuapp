@@ -29,64 +29,67 @@ class _DocumentDownloadState extends State<DocumentDownload> {
 
   @override
   Widget build(BuildContext context) {
-    var expansionTile = ExpansionTile(
-      trailing: _expanded
-          ? const Icon(
-              Icons.remove_circle_outline,
-              color: Colors.pink,
-            )
-          : const Icon(
-              Icons.add_circle_outline,
-              color: Colors.pink,
+    var expansionTile = Theme(
+      data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+      child: ExpansionTile(
+        trailing: _expanded
+            ? Icon(
+                Icons.remove_circle_outline,
+                color: Theme.of(context).colorScheme.tertiaryContainer,
+              )
+            : Icon(
+                Icons.add_circle_outline,
+                color: Theme.of(context).colorScheme.tertiaryContainer,
+              ),
+        leading: const FaIcon(
+          FontAwesomeIcons.filePdf,
+          size: 30,
+        ),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              widget.title,
+              style: Theme.of(context)
+                  .textTheme
+                  .displaySmall
+                  ?.copyWith(color: Colors.black, fontSize: 18),
+              textAlign: TextAlign.start,
             ),
-      leading: const FaIcon(
-        FontAwesomeIcons.filePdf,
-        size: 30,
-      ),
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+          ],
+        ),
+        onExpansionChanged: (changed) {
+          setState(
+            () {
+              _expanded = changed;
+            },
+          );
+          if (widget.onChanged != null) {
+            widget.onChanged?.call();
+          }
+        },
+        initiallyExpanded: _expanded,
         children: <Widget>[
+          const SizedBox(height: 5),
           Text(
-            widget.title,
-            style: Theme.of(context)
-                .textTheme
-                .displaySmall
-                ?.copyWith(color: Colors.black, fontSize: 18),
-            textAlign: TextAlign.start,
+            widget.description,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: Theme.of(context).colorScheme.onPrimaryContainer),
+          ),
+          const SizedBox(height: 15),
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: 50,
+            child: ElevatedButton(
+              onPressed: () => launchURL(widget.url!),
+              child: Text(
+                'Descargar',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+            ),
           ),
         ],
       ),
-      onExpansionChanged: (changed) {
-        setState(
-          () {
-            _expanded = changed;
-          },
-        );
-        if (widget.onChanged != null) {
-          widget.onChanged?.call();
-        }
-      },
-      initiallyExpanded: _expanded,
-      children: <Widget>[
-        const SizedBox(height: 5),
-        Text(
-          widget.description,
-          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: Theme.of(context).colorScheme.onPrimaryContainer),
-        ),
-        const SizedBox(height: 15),
-        SizedBox(
-          width: MediaQuery.of(context).size.width,
-          height: 50,
-          child: ElevatedButton(
-            onPressed: () => launchURL(widget.url!),
-            child: Text(
-              'Descargar',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ),
-        ),
-      ],
     );
 
     return Card(

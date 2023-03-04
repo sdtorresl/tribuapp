@@ -1,7 +1,6 @@
+import 'package:bmwapp/core/color_schemes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
-
-import '../core/color_schemes.dart';
 
 class Countdown extends StatefulWidget {
   final DateTime? startDate;
@@ -52,8 +51,8 @@ class _CountdownState extends State<Countdown> {
           width: 75,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: CustomColors().primary,
-            border: Border.all(color: const Color(0xff32c5ff), width: 5),
+            color: CustomColors().primaryDark,
+            border: Border.all(color: CustomColors().primary, width: 5),
           ),
           child: Center(
             child: Text(

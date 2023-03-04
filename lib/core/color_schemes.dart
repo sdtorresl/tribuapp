@@ -4,7 +4,7 @@ class CustomColors {
   Color get accent => Colors.orangeAccent;
   Color get accentLight => Colors.orange;
   Color get accentDark => Colors.deepOrange;
-  Color get primary => const Color(0xff0074ca);
+  Color get primary => const Color.fromARGB(255, 4, 45, 98);
   Color get primaryLight => const Color(0xff5ba2fe);
   Color get primaryDark => const Color(0xff004999);
   Color get grey => const Color(0xfff3f3f3);

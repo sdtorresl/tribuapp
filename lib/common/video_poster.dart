@@ -112,15 +112,15 @@ class _PosterViewState extends State<PosterView> {
                   Text(
                     'Descargar',
                     style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                        color: Colors.pink,
+                        color: Theme.of(context).colorScheme.tertiaryContainer,
                         fontSize: 18,
                         fontWeight: FontWeight.w600),
                   ),
                   const Padding(
                     padding: EdgeInsets.all(5),
                   ),
-                  const FaIcon(FontAwesomeIcons.cloudArrowDown,
-                      color: Colors.pink),
+                  FaIcon(FontAwesomeIcons.cloudArrowDown,
+                      color: Theme.of(context).colorScheme.tertiaryContainer),
                   const Padding(
                     padding: EdgeInsets.all(19),
                   ),

@@ -122,19 +122,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   PreferredSizeWidget _topBar(BuildContext context) {
     return AppBar(
-      leading: Padding(
+      title: Container(
+        width: 150,
         padding: const EdgeInsets.all(8.0),
         child: Image.asset(
-          "assets/img/logo-bmw-dark.png",
+          "assets/img/tribu-logo.png",
+          fit: BoxFit.fill,
         ),
       ),
-      title: Text(
-        "Eventos TRIBU",
-        style: Theme.of(context).textTheme.headline1?.copyWith(
-              color: Colors.black,
-            ),
-      ),
-      centerTitle: false,
+      centerTitle: true,
       actions: [
         IconButton(
           onPressed: () {

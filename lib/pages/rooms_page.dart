@@ -76,8 +76,7 @@ class _RoomsPageState extends State<RoomsPage> {
                 fontFamily: 'PoppinsMedium',
               ),
             ),
-            subtitle: const Text(
-                "¡Conéctate con el #saber y la #investigación!",
+            subtitle: const Text("¡Disfruta del evento!",
                 style: TextStyle(fontFamily: 'Montserrat')),
             trailing: const Icon(
               Icons.video_call,
@@ -142,7 +141,7 @@ class _RoomsPageState extends State<RoomsPage> {
                 ),
               ),
               const Text(
-                "En vivo ahora mismo",
+                "Ventana al evento",
                 style: TextStyle(
                   fontSize: 22.0,
                   fontFamily: 'PoppinsMedium',

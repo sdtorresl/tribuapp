@@ -4,7 +4,7 @@ class CustomColors {
   Color get accent => Colors.orangeAccent;
   Color get accentLight => Colors.orange;
   Color get accentDark => Colors.deepOrange;
-  Color get primary => const Color.fromARGB(255, 4, 45, 98);
+  Color get primary => const Color.fromARGB(255, 3, 29, 62);
   Color get primaryLight => const Color(0xff5ba2fe);
   Color get primaryDark => const Color(0xff004999);
   Color get grey => const Color(0xfff3f3f3);
@@ -12,7 +12,7 @@ class CustomColors {
 
 const lightColorScheme = ColorScheme(
   brightness: Brightness.light,
-  primary: Color.fromARGB(255, 4, 45, 98),
+  primary: Color.fromARGB(255, 3, 29, 62),
   onPrimary: Color(0xFFFFFFFF),
   primaryContainer: Color(0xFFD6E3FF),
   onPrimaryContainer: Color(0xFF001B3D),

@@ -29,7 +29,7 @@ class OptionsPage extends StatelessWidget {
           ),
           const SizedBox(height: 20.0),
           OptionsCard(
-            title: 'Biblioteca',
+            title: 'Indicadores del evento',
             icon: Icons.picture_as_pdf,
             url: 'http://',
             onTap: () => Navigator.of(context).pushNamed('documents'),

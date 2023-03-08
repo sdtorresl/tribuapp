@@ -91,7 +91,7 @@ Widget _mainTitle(context) {
   return Container(
     padding: const EdgeInsets.all(10),
     child: Text(
-      "Biblioteca",
+      "Indicadores del evento",
       style: Theme.of(context)
           .textTheme
           .displayLarge

@@ -18,7 +18,6 @@ class TribuApp extends StatelessWidget {
 
   final prefs = UserPreferences();
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return Provider(

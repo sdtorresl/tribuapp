@@ -11,14 +11,15 @@ class UserProvider {
 
   Future<UserModel?> login(String email, String code) async {
     final String url = GlobalConfiguration().getValue("api_url") + "/login";
+    final String username = GlobalConfiguration().getValue("cms_user");
+    final String password = GlobalConfiguration().getValue("cms_password");
 
     try {
       String encryptedCode = base64Encode(
         utf8.encode(code),
       );
-      String username = 'eweb';
-      String password = 'E02i4BMX';
-      String basicAuth =
+
+      final String basicAuth =
           'Basic ${base64Encode(utf8.encode('$username:$password'))}';
       String body =
           json.encode({'email': email, 'code': encryptedCode, 'premium': "1"});
@@ -53,8 +54,9 @@ class UserProvider {
         GlobalConfiguration().getValue("api_url") + "/usuarios/" + token;
 
     try {
-      String username = 'eweb';
-      String password = 'E02i4BMX';
+      final String username = GlobalConfiguration().getValue("cms_user");
+      final String password = GlobalConfiguration().getValue("cms_password");
+
       String basicAuth =
           'Basic ${base64Encode(utf8.encode('$username:$password'))}';
 

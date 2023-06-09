@@ -25,13 +25,10 @@ class ActionButton extends StatelessWidget {
               textAlign: TextAlign.left,
               style: Theme.of(context)
                   .textTheme
-                  .headline4
+                  .headlineMedium
                   ?.copyWith(color: Colors.white),
             ),
-            Icon(
-              Icons.arrow_forward_outlined,
-              color: Colors.yellow[600],
-            )
+            const Icon(Icons.arrow_forward_outlined, color: Colors.white)
           ],
         ),
       ),

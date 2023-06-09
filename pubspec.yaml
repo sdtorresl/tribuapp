@@ -1,4 +1,4 @@
-name: bmwapp
+name: tribuapp
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -37,6 +37,17 @@ dependencies:
   cupertino_icons: ^1.0.2
   rxdart: ^0.27.7
   cached_network_image: ^3.2.3
+  shared_preferences: ^2.0.17
+  flutter_countdown_timer: ^4.1.0
+  carousel_slider: ^4.2.1
+  font_awesome_flutter: ^10.4.0
+  url_launcher: ^6.1.9
+  youtube_player_flutter: ^8.1.2
+  global_configuration: ^2.0.0-nullsafety.1
+  http: ^0.13.5
+  intl: ^0.18.0
+  vimeo_player_flutter: ^0.0.3+2
+  flutter_native_splash: ^2.2.18
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +59,20 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  flutter_launcher_icons: "^0.12.0"
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/icon.png"
+  remove_alpha_ios: true
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: false
+  windows:
+    generate: false
+  macos:
+    generate: false
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -61,7 +86,7 @@ flutter:
 
   assets:
     - assets/img/
-    - assets/config/
+    - assets/cfg/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -75,6 +100,26 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
+    - family: BMW
+      fonts:
+        - asset: assets/fonts/BMWTypeNextLatin-Bold.otf
+
+    - family: RajdhaniRegular
+      fonts:
+        - asset: assets/fonts/Rajdhani/Rajdhani-Regular.ttf
+
+    - family: RajdhaniMedium
+      fonts:
+        - asset: assets/fonts/Rajdhani/Rajdhani-Medium.ttf
+
+    - family: RajdhaniLight
+      fonts:
+        - asset: assets/fonts/Rajdhani/Rajdhani-Light.ttf
+
+    - family: RajdhaniBold
+      fonts:
+        - asset: assets/fonts/Rajdhani/Rajdhani-Bold.ttf
+
     - family: Montserrat
       fonts:
         - asset: assets/fonts/Montserrat/Montserrat-Regular.ttf

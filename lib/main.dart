@@ -1,14 +1,22 @@
-import 'package:bmwapp/bloc/provider.dart';
-import 'package:bmwapp/core/app_theme.dart';
-import 'package:bmwapp/pages/test_page.dart';
+import 'package:tribuapp/bloc/provider.dart';
+import 'package:tribuapp/core/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:tribuapp/preferences/user_preferences.dart';
+import 'package:global_configuration/global_configuration.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'core/routes.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await GlobalConfiguration().loadFromAsset("settings.json");
+  await UserPreferences.init();
+  runApp(TribuApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class TribuApp extends StatelessWidget {
+  TribuApp({super.key});
+
+  final prefs = UserPreferences();
 
   // This widget is the root of your application.
   @override
@@ -18,22 +26,13 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: lightTheme,
         initialRoute: _initialRoute(),
-        routes: {
-          /*         'home': (BuildContext context) => HomePage(),
-          'onboarding': (BuildContext context) => OnboardingPage(),
-          'transmission': (context) => TransmissionPage(),
-          'documents': (context) => DocumentsPage(),
-          'video-posters': (context) => PostersPage(),
-          'video-posters-poll': (context) => PostersPollPage(), */
-          'login': (BuildContext context) => const TestPage(),
-        },
+        routes: routes,
       ),
     );
   }
 
   String _initialRoute() {
-    return 'login';
-    /* if (prefs.onboardingViewed == true) {
+    if (prefs.onBoardingViewed == true) {
       if (prefs.token != null) {
         return 'home';
       } else {
@@ -41,6 +40,6 @@ class MyApp extends StatelessWidget {
       }
     } else {
       return 'onboarding';
-    } */
+    }
   }
 }

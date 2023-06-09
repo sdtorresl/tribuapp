@@ -5,7 +5,7 @@ import 'color_schemes.dart';
 TextTheme textTheme = const TextTheme(
   headline1: TextStyle(
     fontSize: 22.0,
-    fontFamily: 'PoppinsLight',
+    fontFamily: 'RajdhaniRegular',
     fontWeight: FontWeight.bold,
   ),
   headline2: TextStyle(
@@ -44,11 +44,32 @@ ThemeData lightTheme = ThemeData.light().copyWith(
   textTheme: textTheme,
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
+      backgroundColor: lightColorScheme.primary,
+      foregroundColor: Colors.white,
       textStyle: const TextStyle(
         fontSize: 20,
         fontFamily: 'Poppins',
       ),
       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+    ),
+  ),
+  floatingActionButtonTheme: FloatingActionButtonThemeData(
+    backgroundColor: lightColorScheme.tertiaryContainer,
+    foregroundColor: lightColorScheme.onTertiaryContainer,
+  ),
+  tabBarTheme: TabBarTheme(
+    labelColor: lightColorScheme.primary,
+    labelStyle: const TextStyle(
+      fontSize: 15,
+    ),
+    unselectedLabelStyle: const TextStyle(fontSize: 12),
+    indicator: BoxDecoration(
+      border: Border(
+        bottom: BorderSide(
+          color: lightColorScheme.primary,
+          width: 3,
+        ),
+      ),
     ),
   ),
 );

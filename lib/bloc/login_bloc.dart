@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:bmwapp/bloc/validators.dart';
+import 'package:tribuapp/bloc/validators.dart';
 import 'package:rxdart/rxdart.dart';
 
 class LoginBloc with Validators {

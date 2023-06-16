@@ -22,7 +22,7 @@ class TribuApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Provider(
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Tribu App',
         theme: lightTheme,
         initialRoute: _initialRoute(),
         routes: routes,
